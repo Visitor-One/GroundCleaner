@@ -1,5 +1,5 @@
-Leaf Cleanup V4.7
-Cache-Busting: v470
+Leaf Cleanup V4.71
+Cache-Busting: v471
 Current garden background retained
 Collision zones for house, fences, planting, gate, mailbox and tree trunks
 Axis-separated collision sliding
