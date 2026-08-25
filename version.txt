@@ -1,3 +1,5 @@
-Leaf Cleanup V4.5
-Cache-Busting: v450
-8 player directions + 8 truck directions
+Leaf Cleanup V4.6
+Cache-Busting: v460
+New clean 1536x1024 garden base
+Old extracted decorative sprites disabled
+8 player directions + 8 truck directions retained
