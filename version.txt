@@ -1,5 +1,7 @@
-Leaf Cleanup V4.6
-Cache-Busting: v460
-New clean 1536x1024 garden base
-Old extracted decorative sprites disabled
-8 player directions + 8 truck directions retained
+Leaf Cleanup V4.7
+Cache-Busting: v470
+Current garden background retained
+Collision zones for house, fences, planting, gate, mailbox and tree trunks
+Axis-separated collision sliding
+Dynamic Y-depth sprites retained
+Foreground occlusion for trees and gate using background crops
