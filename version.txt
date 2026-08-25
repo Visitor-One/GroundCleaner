@@ -1,7 +1,8 @@
-Leaf Cleanup V4.71
-Cache-Busting: v471
-Current garden background retained
-Collision zones for house, fences, planting, gate, mailbox and tree trunks
-Axis-separated collision sliding
-Dynamic Y-depth sprites retained
-Foreground occlusion for trees and gate using background crops
+Leaf Cleanup V4.8
+Cache-Busting: v480
+Background: user-corrected clean 1536x1024 scene
+No background crop occlusion
+Tree/bin/wheelbarrow are transparent dynamic sprites
+Player/tree/truck/leaves use one depth-sorted render list
+Tree collision uses trunk footprint only
+House/fence/gate/planting collision zones enabled
