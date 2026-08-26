@@ -1,9 +1,5 @@
-Leaf Cleanup V5.1
-Cache-Busting v510
-- Blätter besitzen feste, reproduzierbare Positionen.
-- Keine Bewegung/kein Schweben der Blätter.
-- Blattgrafiken flacher auf den Boden gelegt.
-- Strengere Rasen-/Grundstücksmaske.
-- Keine Blätter auf Steinweg, Einfahrt, Torbereich, Blumenbeeten oder außerhalb des Grundstücks.
-- Sperrbereiche um Baum, Schubkarre und Mülltonne berücksichtigt.
-- Blätter verschwinden ausschließlich beim Aufsammeln.
+Leaf Cleanup V5.2
+Cache-Busting v520
+- Originale Blattgrafiken leaf_01 bis leaf_04 übernommen.
+- Keine erneute grafische Bearbeitung der Blatt-Quelldateien.
+- Feste Blattpositionen und Sperrzonenlogik aus V5.1 beibehalten.
