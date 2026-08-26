@@ -1,8 +1,6 @@
-Leaf Cleanup V4.8
-Cache-Busting: v480
-Background: user-corrected clean 1536x1024 scene
-No background crop occlusion
-Tree/bin/wheelbarrow are transparent dynamic sprites
-Player/tree/truck/leaves use one depth-sorted render list
-Tree collision uses trunk footprint only
-House/fence/gate/planting collision zones enabled
+Leaf Cleanup V4.9
+Cache-Busting: v490
+Player sprites unchanged
+Real green wheeled trash-bin asset installed
+Tree alpha fringe/contour cleaned
+Dynamic depth sorting and collision system retained

@@ -1,4 +1,4 @@
-const ASSET_VERSION="v480",c=document.getElementById("world"),ctx=c.getContext("2d"),I={},D=["N","NE","E","SE","S","SW","W","NW"];
+const ASSET_VERSION="v490",c=document.getElementById("world"),ctx=c.getContext("2d"),I={},D=["N","NE","E","SE","S","SW","W","NW"];
 function L(k,f){let i=new Image;i.src=f+"?v="+ASSET_VERSION;I[k]=i}L("bg","garden_background.png");["tree","bush_green","bush_flowers","flower_bed","wheelbarrow","birdbath_pool","bench","lantern","gate_left","gate_right","mailbox","bin","bin_full"].forEach(n=>L(n,n+".png"));D.forEach(d=>{L("p"+d,"player_"+d+".png");L("t"+d,"truck_"+d+".png")});for(let i=1;i<=4;i++)L("l"+i,"leaf_0"+i+".png");
 let running=false,paused=false,joy={x:0,y:0},p={x:720,y:590,d:"S"},leaves=[],scoreN=0,totalPoints=0,binN=0,emptiedN=0,truck={on:false,x:-250,y:840,d:"E",t:0};
 function spr(im,x,y,w,h){if(im?.complete&&im.naturalWidth)ctx.drawImage(im,x-w/2,y-h,w,h)}
