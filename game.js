@@ -1,21 +1,45 @@
-const ASSET_VERSION="v500",c=document.getElementById("world"),ctx=c.getContext("2d"),I={},D=["N","NE","E","SE","S","SW","W","NW"];
+const ASSET_VERSION="v510",c=document.getElementById("world"),ctx=c.getContext("2d"),I={},D=["N","NE","E","SE","S","SW","W","NW"];
 function L(k,f){let i=new Image;i.src=f+"?v="+ASSET_VERSION;I[k]=i}L("bg","garden_background.png");["tree","bush_green","bush_flowers","flower_bed","wheelbarrow","birdbath_pool","bench","lantern","gate_left","gate_right","mailbox","bin","bin_full"].forEach(n=>L(n,n+".png"));D.forEach(d=>{L("p"+d,"player_"+d+".png");L("t"+d,"truck_"+d+".png")});for(let i=1;i<=4;i++)L("l"+i,"leaf_0"+i+".png");
 let running=false,paused=false,joy={x:0,y:0},p={x:720,y:590,d:"S"},leaves=[],scoreN=0,totalPoints=0,binN=0,emptiedN=0,truck={on:false,x:-250,y:840,d:"E",t:0};
 function spr(im,x,y,w,h){if(im?.complete&&im.naturalWidth){ctx.save();ctx.globalAlpha=1;ctx.drawImage(im,x-w/2,y-h,w,h);ctx.restore()}}
 function dir(x,y){if(Math.hypot(x,y)<.1)return p.d;let a=(Math.atan2(y,x)*180/Math.PI+360)%360;return D[Math.round((a+90)/45)%8]}
 function pointInBlock(x,y,b){return x>b.x&&x<b.x+b.w&&y>b.y&&y<b.y+b.h}
+function nearSegment(px,py,x1,y1,x2,y2,r){
+  const vx=x2-x1,vy=y2-y1,wx=px-x1,wy=py-y1;
+  const c1=vx*wx+vy*wy,c2=vx*vx+vy*vy;
+  const t=Math.max(0,Math.min(1,c1/c2));
+  return Math.hypot(px-(x1+t*vx),py-(y1+t*vy))<r;
+}
 function leafAllowed(x,y){
-  if(x<185||x>1260||y<205||y>750)return false;
+  // Nur innerhalb der tatsächlichen Rasenfläche des Grundstücks.
+  if(x<285||x>1260||y<245||y>765)return false;
+  if(y<330 && x<690)return false;       // Haus/Beet links oben
+  if(y<390 && x<590)return false;
+  if(y<470 && x<410)return false;       // linke Blumenbeete
+  if(y>690 && x<390)return false;       // Beet/Zaun links unten
+  if(y>720 && x>1080)return false;      // Einfahrt/Gehweg rechts unten
+  if(x>1190 && y>575)return false;      // Zaun/Gehweg rechts
   if(BLOCKS.some(b=>pointInBlock(x,y,b)))return false;
-  if(Math.hypot(x-1125,y-425)<115)return false;
-  if(Math.hypot(x-875,y-350)<105)return false;
-  if(Math.hypot(x-955,y-690)<90)return false;
+
+  // Keine Blätter auf dem Steinweg zur Haustür.
+  if(nearSegment(x,y,525,360,875,610,42))return false;
+
+  // Keine Blätter auf Einfahrt, an Tor, Mülltonne, Baum oder Schubkarre.
+  if(Math.hypot(x-955,y-690)<125)return false;
+  if(Math.hypot(x-1125,y-425)<130)return false;
+  if(Math.hypot(x-875,y-350)<110)return false;
+  if(x>720 && y>610)return false;
   return true;
 }
+function seededRandom(seed){
+  let s=seed>>>0;
+  return ()=>{s=(1664525*s+1013904223)>>>0;return s/4294967296}
+}
 function makeLeaves(n){
-  const a=[];let tries=0;
-  while(a.length<n&&tries++<12000){
-    const x=190+Math.random()*1060,y=210+Math.random()*535;
+  // Absichtlich deterministisch: Blätter bleiben bei jedem Start an denselben Bodenpositionen.
+  const rnd=seededRandom(5102026),a=[];let tries=0;
+  while(a.length<n&&tries++<20000){
+    const x=285+rnd()*975,y=245+rnd()*520;
     if(leafAllowed(x,y))a.push({x,y,k:1+(a.length%4),on:true});
   }
   return a;
@@ -80,7 +104,7 @@ function draw(){
 
   // Leaves participate in the same depth system.
   leaves.forEach(l=>{
-    if(l.on) q.push({depth:l.y, f:()=>spr(I["l"+l.k],l.x,l.y,34,34)});
+    if(l.on) q.push({depth:l.y, f:()=>spr(I["l"+l.k],l.x,l.y,30,18)});
   });
 
   // Player depth = feet/ground anchor.
