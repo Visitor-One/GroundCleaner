@@ -1,5 +1,6 @@
-Leaf Cleanup V5.2
-Cache-Busting v520
-- Originale Blattgrafiken leaf_01 bis leaf_04 übernommen.
-- Keine erneute grafische Bearbeitung der Blatt-Quelldateien.
-- Feste Blattpositionen und Sperrzonenlogik aus V5.1 beibehalten.
+Leaf Cleanup V5.3
+Cache-Busting v530
+- Alle 8 Spielfigur-Richtungen neu freigestellt.
+- Spielfigur selbst ist vollständig deckend (Alpha 255).
+- Nur der Hintergrund der Player-PNGs ist transparent.
+- Blatt- und Sperrzonenlogik aus V5.2 bleibt erhalten.
