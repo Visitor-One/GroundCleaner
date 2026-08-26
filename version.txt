@@ -1,6 +1,8 @@
-Leaf Cleanup V4.9
-Cache-Busting: v490
-Player sprites unchanged
-Real green wheeled trash-bin asset installed
-Tree alpha fringe/contour cleaned
-Dynamic depth sorting and collision system retained
+Leaf Cleanup V5.0
+Cache-Busting v500
+1. Player sprites fully opaque.
+2. Visible green wheeled trash bin restored.
+3. Leaves generated only in valid accessible lawn zones.
+4. Four real leaf PNG sprites used.
+5. Collision map revised: path and approach to garden-house door are walkable.
+6. Existing depth sorting/tree trunk collision retained.
