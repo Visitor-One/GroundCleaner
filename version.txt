@@ -1,5 +1,5 @@
-Leaf Cleanup V5.0
-Cache-Busting v500
+Leaf Cleanup V5.01
+Cache-Busting v501
 1. Player sprites fully opaque.
 2. Visible green wheeled trash bin restored.
 3. Leaves generated only in valid accessible lawn zones.
