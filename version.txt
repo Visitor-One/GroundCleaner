@@ -1,6 +1,4 @@
-Leaf Cleanup V5.3
-Cache-Busting v530
-- Alle 8 Spielfigur-Richtungen neu freigestellt.
-- Spielfigur selbst ist vollständig deckend (Alpha 255).
-- Nur der Hintergrund der Player-PNGs ist transparent.
-- Blatt- und Sperrzonenlogik aus V5.2 bleibt erhalten.
+Leaf Cleanup V5.4
+Cache-Busting v540
+Arbeitsschuhe fest in allen 8 Player-Sprites integriert.
+Spielfigur vollständig deckend; keine Halbtransparenz.
